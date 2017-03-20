@@ -34,7 +34,7 @@ if len(goodMatches) > MIN_MATCH_COUNT:
     M, mask = cv2.findHomography(sourcePoints, destinationPoints, method=cv2.RANSAC, ransacReprojThreshold=5.0)
     matchesMask = mask.ravel().tolist()
     
-        h, w = img1.shape
+    h, w = img1.shape
     corners = np.float32([ [0, 0], [0, h - 1], [w - 1, h - 1], [w - 1, 0] ]).reshape(-1, 1, 2)
     transformedCorners = cv2.perspectiveTransform(corners, M)
     
